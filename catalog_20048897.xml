@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<carrot_store SName="Carrot Gift Card Store">
+    <store_details>
+        <store_name>CARROT GIFT CARD STORE</store_name>
+        <logo />
+    </store_details>
+    <popular_cards>
+        <cards p_id="c001" group="Games">
+            Gareena Shells
+            <c_price>2000</c_price>
+            <cost_price>Cost: 2090</cost_price>
+            <shipped_from>From: Nepal Games Store</shipped_from>
+        </cards>
+        <cards p_id="c001">
+            PUBG mobile gift card
+            <c_price>2500.50</c_price>
+            <cost_price>Cost: 2600.50</cost_price>
+        </cards>
+        <cards p_id="c002">
+            eGift Cards
+            <c_price>20000</c_price>
+            <cost_price>Cost: 20100</cost_price>
+        </cards>
+    </popular_cards>
+    <gift_cards>
+        <title>Online Cards</title>
+        <gift_card card_id="c001" category="Games">
+            <type>Games Gift Cards</type>
+            <discount_vouchers voucher_id="v101">
+                New year offer: 20% OFF
+                <discount_time>upto 2 purchase</discount_time>
+            </discount_vouchers>
+            <card_item card_code="CG1111">
+                <c_name>
+                    <span>Name:</span>
+                    Xbox Games Card
+                </c_name>
+                <card_price>4500</card_price>
+                <cost>Cost: 5000 </cost>
+                <from>From: NepGame</from>
+                <validity>Validity: No expiry date</validity>
+                <num_of_users>Users: 1.1 million</num_of_users>
+                <quantity>Available quantity: 100</quantity>
+                <features>Features: buy variety of games, renew subscriptions, buy game add-ons</features>
+                <rating>Rating: 4.6</rating>
+            </card_item>
+            <card_item card_code="CG2222" v_id="v101">
+                <c_name>Nintendo Gift Card</c_name>
+                <card_price>7000</card_price>
+                <cost>Cost: 10000</cost>
+                <from>From: ShippudenOnline Store</from>
+                <validity>Validity: 5 years</validity>
+                <num_of_users>Users: 10 k</num_of_users>
+                <quantity>Available quantity: 50</quantity>
+                <features>Features: buy variety of games, renew subscriptions, buy game add-ons</features>
+                <rating>Rating: 3.5</rating>
+            </card_item>
+            <card_item card_code="CG3333">
+                <c_name>Robolox Gift Card</c_name>
+                <card_price>3000</card_price>
+                <cost>Cost: 3500</cost>
+                <from>From: Nepal Game Store</from>
+                <validity>Validity: No expiry date</validity>
+                <num_of_users>Users: 1.5 k</num_of_users>
+                <quantity>Available quantity: 80</quantity>
+                <features>Features: buy variety of games, renew subscriptions, buy game add-ons</features>
+                <rating>Rating: 4</rating>
+            </card_item>
+        </gift_card>
+        <giftCard card_id="c002" category="Shopping">
+            <type>Shopping Gift Cards</type>
+            <delivery>
+                Delivery Offer
+                <delivery_time>Delivery Time: 2-3 Days</delivery_time>
+                <delivery_location>Location: All over Nepal</delivery_location>
+                <delivery_price loc="Inside Kathamandu">Price(Inside Valley):Rs 100</delivery_price>
+                <delivery_price loc="Outside Kathmandy Valley">Price(outside valley): Rs 500</delivery_price>
+                <delivery_offer>Discount offer: 10% OFF</delivery_offer>
+            </delivery>
+            <card_item card_code="CS1111">
+                <c_name>Amazon Gift Card</c_name>
+                <card_price>9009.50</card_price>
+                <cost>Cost: 9500.00</cost>
+                <from>From: Amazon</from>
+                <validity>Validity: No expiry date</validity>
+                <num_of_users>Users: 1.2 million</num_of_users>
+                <quantity>Available quantity: 50</quantity>
+                <features>Features: </features>
+                <rating>Rating: 4.3</rating>
+            </card_item>
+            <card_item card_code="CS2222">
+                <c_name>Archies Gift Card</c_name>
+                <card_price>5000</card_price>
+                <cost>Cost: 5100</cost>
+                <from>From: Archies Store</from>
+                <validity>Validity: 4 years</validity>
+                <num_of_users>Users: 4k</num_of_users>
+                <quantity>Available quantity: 50</quantity>
+                <!-- <delivery>
+                    <delivery_time>1 week</delivery_time>
+                    <delivery_location>All over Nepal</delivery_location>
+                    <delivery_price loc="Inside Kathamandu">Rs 100</delivery_price>
+                    <delivery_price loc="Outside Kathmandy Valley">Rs 500</delivery_price>
+                </delivery> -->
+                <features>Features: For buying clothes and footwear only</features>
+                <rating>Rating: 4.3</rating>
+            </card_item>
+            <card_item card_code="CS3333">
+                <c_name>GRUBHUB Gift Card</c_name>
+                <card_price>10000</card_price>
+                <cost>Cost: 10080</cost>
+                <validity>Validity: No expiry date</validity>
+                <num_of_users>Users: 1 million</num_of_users>
+                <quantity>Available quantity: 50</quantity>
+                <features>Features: </features>
+                <rating>Rating: 4.5</rating>
+            </card_item>
+        </giftCard>
+        <giftCard card_id="c003" category="Hotels">
+            <type>Hotels Gift Cards</type>
+            <card_item card_code="CH1111">
+                <c_name>Wisco Hotel Gift Card</c_name>
+                <card_price>50000</card_price>
+                <cost>Cost: 50100</cost>
+                <from>Frome: Wisco Hotel</from>
+                <validity>Validity: No expiry date</validity>
+                <num_of_users>Users: 1k</num_of_users>
+                <quantity>Available quantity: 30</quantity>
+                <features>Features: </features>
+                <rating>Rating: 4</rating>
+            </card_item>
+            <cardItem card_code="CH2222">
+                <c_name>Taj Hotel Gift Card</c_name>
+                <card_price>10000</card_price>
+                <cost>Cost: 10300</cost>
+                <from>From: Taj Hotel</from>
+                <validity>Validity: No expiry date</validity>
+                <num_of_users>Users: 1 million</num_of_users>
+                <quantity>Available quantity: 20</quantity>
+                <!-- <delivery>
+                    <delivery_time>2-4 Days</delivery_time>
+                    <delivery_location>Inside Kathmandu valey</delivery_location>
+                    <delivery_price>80</delivery_price>
+                </delivery> -->
+                <features>Features:</features>
+                <rating>Rating: 4.3</rating>
+            </cardItem>
+        </giftCard>
+        <giftCard card_id="c004" category="RetailShops">
+            <type>Retail Gift Cards</type>
+            <shipped_date>
+                Shipped date:
+                <shipped_day>Day:23</shipped_day>
+                <shipped_month>Month: August</shipped_month>
+                <shipped_year>Year: 2021</shipped_year>
+            </shipped_date>
+            <card_item card_code="CR1111">
+                <c_name>Walmart Gift Card</c_name>
+                <card_price>100000</card_price>
+                <cost>Cost: 100200</cost>
+                <from>From: Walmart</from>
+                <validity>Validity: 10 years</validity>
+                <num_of_users>Users: 10k</num_of_users>
+                <quantity>Available quantity: 20</quantity>
+                <rating>Rating: 4.1</rating>
+            </card_item>
+            <cardItem card_code="CR2222">
+                <c_name>Target Gift Card</c_name>
+                <card_price>40000</card_price>
+                <cost>Cost: 40100</cost>
+                <from>From: Target</from>
+                <validity>Validity: No expiry date</validity>
+                <numOfUsers>Users: 25k</numOfUsers>
+                <quantity>Available quantity: 40</quantity>
+                <!-- <delivery>
+                    <deliveryTime>2-4 Days</deliveryTime>
+                    <deliveryLocation>Inside Kathmandu valey</deliveryLocation>
+                    <deliveryPrice>80</deliveryPrice>
+                </delivery> -->
+                <rating>Rating: 3.5</rating>
+            </cardItem>
+        </giftCard>
+    </gift_cards>
+    <footer>
+        <business_hours>
+            Business Hours
+            <day>Sun-Sat (Nepal Time)</day>
+            <time>8 AM - 8 PM</time>
+        </business_hours>
+        <contacts>
+            <address> Address: Pepsicola townplanning</address>
+            <phone_lbl>Ring us: </phone_lbl>
+            <phone type="work">01567888</phone>
+            <phone type="home">9864590194</phone>
+            <email href="carrotstore99@gmail.com">carrotstore99@gmail.com</email>
+        </contacts>
+        <social_media_links>
+            <facebook href="www.facebook.com">facebook</facebook>
+            <instagram href="www.instagram.com">instagram</instagram>
+            <youtube href="www.youtube.com">youtube</youtube>
+            <website href="www.carrotstore@.com">website</website>
+        </social_media_links>
+    </footer>
+</carrot_store>
