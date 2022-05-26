@@ -1,41 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Grape+Nuts&family=Ubuntu:wght@300&display=swap');
+/* importing fonts from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Grape+Nuts&family=Nunito:wght@300&family=Ubuntu:wght@300&display=swap');
+
+/* 
+    Author: Injala Karki
+    ID: 20048897
+    College ID: NP01CP4S210186
+*/
+
+/* for the whole XML part */
 carrot_store{
     box-sizing: border-box;
-    /* background-color: #005f73; */
-    background-image: linear-gradient(#005f73, #0a9396, #94d2bd, #e9d8a6, #ee9b00, #ca6702);
-    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(#005f73, #94d2bd, #e9d8a6, #94d2bd, #005f73);
+    background-size: cover;
+    background-repeat: no-repeat;
     color: #ffffff;
 }
+
+/* logo and title part*/
 store_details {
     display: flex;
     width: 100%;
     height: 90px;
-    background-color: #ffffff;
-    
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap; 
+    background-color:rgb(255, 255, 255);
+}
+
+#s01{
+    display: flex;
 }
 logo{
-    background-image: url("logo.png");
+    background-image: url("./image/logo.png");
     background-size: cover;
     background-position: center;
-    width: 75px;
-    height: 70px;
+    width: 65px;
+    height: 60px;
     border-radius: 50%;
-    /* margin-top: 8px;
-    margin-left: 230px; */
-    margin: 6px 0 0 230px;
+    background-color: #ca6702;
+    margin: 13px 0 0 0px;
 }
-img{
-    width: 75px;
-    height: 90px;
+/* for search logo */
+search{
+    background-image: url("./image/search.png");
+    background-size: cover;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
 
-}
 store_name{
     font-size: 40px;
     font-family: 'Dancing Script';
-    /* text-decoration: none; */
-    /* font-weight: 500; */
-    /* text-align: center; */
-    /* margin-left: 5px; */
     margin-top: 24px;
     color: #001219;
 }
@@ -44,146 +65,580 @@ desc{
     font-style: italic;
     color: #515656;
     font-size: 16px;
-    /* margin-top: 46px;
-    margin-left: 15px; */
     margin: 46px 0 0 15px;
 }
-popular_cards{
-    /* display: flex; */
+
+/* popular cards part starts from here */
+popular_cards{ 
+    display: flex;
     box-sizing: border-box;
     height: 500px;
-    /* font-family: 'Ubuntu'; */
-    /* border: 2px solid black; */
-    /* justify-content: flex-start;
-    flex-direction: row; */
-}
-p_title{
-    /* padding: 0; */
     font-family: 'Ubuntu';
-    display: block;
-    /* float: left; */
-    font-size: 30px;
-    margin-top: 40px;
-    margin-left: 100px;
-    /* height: 50px; */
-    /* background-color: purple; */
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column; 
+}
+
+#d01{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    height: 340px;
+    flex-wrap: wrap;
 }
 
 #p01{
-    /* display: flex; */
-    /* align-items: flex-start; */
-    /* flex-direction: row; */
-    margin-left: 103px;
-    margin-bottom: 40px;
-    display: inline-flex;
-    /* background-color: powderblue; */
+    background-image: url("./image/garena_shells.png");
+    
 }
-#g01{
-    background-image: url("garena_shells.png");
-    width: 240px;
-    height: 280px;
+#p02{
+    background-image: url("./image/pubg.jpg");
+}
+#p03{
+    background-image: url("./image/google.png");
+}
+
+#p04 {
+    background-image: url("./image/COD.png");
+}
+#p01, #p02, #p03, #p04{
+    width: 260px;
+    height: 300px;
     background-size: cover;
     background-position: center;
     border-radius: 5px;
-    /* display: flex; */
-    /* justify-content: center; */
-    margin-top: 20px;
 }
 cards{
     display: flex;
     flex-direction: column;
-    /* justify-content: flex-end; */
     flex-wrap: wrap;
     font-family: 'Ubuntu';
 }
+cards:hover{
+    cursor: pointer;
+    border: 2px solid #005f73;
+}
 #g22{
-    /* display: flex; */
-    /* justify-content: space-around; */
-    /* align-items: flex-end; */
-    margin-top: 200px;
-    background-color: #0a9396;
-    height: 60px;
-    /* font-size: 20px; */
-    /* line-height: 34px; */
-    /* order: 10; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 240px;
+    background-color: rgb(10, 147, 150);
+    color: #ffffff;
+    height: 65px;
+}
+/* applying hovering effect */
+#g22:hover{
+    color: #e78049;
+    font-weight: bold;
 }
 p_name{
-    display: flex;
-    justify-content: space-around;
-    /* align-items: flex-end; */
-    /* margin-top: 230px; */
- /* background-color: #0a9396; */
-    /* height: 34px; */
     font-size: 20px; 
     line-height: 34px; 
-    /* order: 10; */
+}
+p_name:hover{
+    text-decoration: underline;
 }
 c_price{
     display: flex;
     background-color: #e8763a;
     color: #001219;
-    justify-content: space-around;
-    /* align-items: center; */
+    justify-content: center;
     order: -1;
     font-size: 20px;
     font-weight: bold;
-    /* margin-top: 10px; */
-    /* text-align: center; */
-    /* border-radius: 40%; */
-    /* position: absolute; */
-    /* top: 50%;
-    left: 50%; */
     height: 50px;
     width: 70px;
     border-radius: 0 0 150px 0;
-    
-    /* border: 2px black; */
-    /* border-style: double; */
     font-family: 'Grape Nuts';
-    /* text-align: ; */
-     /* flex-direction: column; */
 }
-cost_price{
-    display: flex;
-    justify-content: space-around;
-    /* background-color: #0a9396; */
-    /* height: 25px; */
+c_price:hover{
+    color: white;
+}
+
+/* applying before selector to add content before the c_price */
+c_price::before{
+    content: "£";
+    color: #001219;
+}
+c_price:hover::before{
+    color: white;
 }
 shipped_from{
-    color: #bebebe;
+    display: none;
 }
-#p02{
-    background-image: url("pubg.jpg");
-    width: 240px;
-    height: 280px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 5px;
-    margin-top: 20px;
-    margin-left: 50px;
-}
+hr{
+    border: 2px solid white;
+    background-color: rgb(255, 255, 255);
+    width: 1200px;
+    margin-top: 50px;
 
-#g02{
-    background-image: url("google.png");
-    /* color: #001219; */
-    width: 240px;
-    height: 280px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 5px;
-    margin-top: 20px;
-    margin-left: 50px;
 }
-
 gift_cards{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     color: #001219;
 }
 
 title{
-    display: block;
     font-family: 'Ubuntu';
-    font-size: 30px;
-    margin-top: 40px;
-    margin-left: 100px;
+    color: white;
+    font-size: 35px;
+    margin-top: 30px;
+    margin-right: 1030px;
+}
+
+type{
+    display: list-item;
+    list-style-type:square; 
+    margin-left: 170px;
+    margin-top: 20px;
+    font-size: 24px;
+    font-family: 'Nunito';
+}
+
+/* applying after selector to add content after the c_price */
+type::after{
+    content: " Gift Cards";
+}
+cost_price::before{
+    content: "Cost: Rs. ";
+}
+from::before, validity::before, num_of_users::before, quantity::before, delivery_offer::before, rating::before{
+    display: block;
+    font-size: 19px;
+    font-weight: bold;
+    color: #ca6702;
+    font-style: normal;
+}
+from::before{
+    content: "From:";
+    
+}
+validity::before{
+    content: "Validity:";
+}
+num_of_users::before{
+    content: "Number of users:";
+}
+quantity::before{
+    content: "Available quantity:";
+}
+
+delivery_offer::before{
+    content: "Delivery offer:";
+}
+rating::before{
+    content: "Rating:";
+}
+
+discount_vouchers{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 420px;
+    flex-shrink:initial;
+
+}
+vouch{
+    background-image: url("./image/vouch.png");
+    height: 323px;
+    width: 1230px;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 3px 4px black;
+    animation: slider 10s infinite linear;  /* applying animation property */
+    animation-timing-function: ease-in;
+
+}
+
+/* applying keyframe query */
+@keyframes slider{
+    0%{ background-image: url("./image/vouch.png"); }
+    20%{ background-image: url("./image/vouch.png"); }
+    30%{ background-image: url("./image/newyear.png"); }
+    50%{ background-image: url("./image/newyear.png"); }
+    70%{ background-image: url("./image/off.png"); }
+    90%{ background-image: url("./image/off.png"); }
+}
+vouch:hover{
+    cursor: pointer;
+    
+}
+#d02{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+offer{
+    font-family: 'Ubuntu';
+    font-weight: bold;
+}
+discount_time{
+    font-family: 'Grape Nuts';
+    font-weight: bold;
+}
+#d03{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 790px;
+
+}
+card_item {
+    display: flex;
+    flex-direction: column;
+}
+card_item:hover{
+    cursor: pointer;
+    
+}
+#b01{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: 350px;
+    width: 600px;
+}
+
+#c11{
+    background-image: url("./image/xbox.png");
+}
+#c13{
+    background-image: url("./image/nintendo.png");
+}
+
+#c14{
+    background-image: url("./image/roblox.png");
+}
+#c15{
+    background-image: url("./image/LOL.png");
+}
+#c16{
+    background-image: url("./image/amazon.png");
+}
+
+#c17{
+    background-image: url("./image/archies.png");
+}
+
+#c18{
+    background-image: url("./image/macys.png");
+}
+#c19{
+    background-image: url("./image/Harrods.png");
+}
+#c20{
+    background-image: url("./image/airbnb.png");
+}
+
+#c21{
+    background-image: url("./image/taj.png");
+}
+#c22{
+    background-image: url("./image/ritz.png");
+}
+#c23{
+    background-image: url("./image/peninsula.png");
+}
+#c11, #c13, #c14, #c15, #c16, #c17, #c18, #c19, #c20, #c21, #c22, #c23{
+    width: 280px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+}
+
+#c12{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Ubuntu';
+    line-height: 26px;
+    font-size: 16px;
+    width: 220px;
+    height: 350px;
+    color: #515656;
+    font-style: italic;
+}
+
+c_name{
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px; 
+    font-family: 'Ubuntu';
+    line-height: 34px; 
+}
+c_name:hover{
+    text-decoration: underline;
+}
+cost{
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Ubuntu';
+}
+cost::before{
+    content: "Cost: Rs. ";
+}
+discount::before{
+    content: "Discount:";
+    display: block;
+    font-size: 19px;
+    font-weight: bold;
+    color: #ca6702;
+    font-style: normal;
+}
+discount::after{
+    content: "%";
+}
+span{
+    font-size: 19px;
+    font-weight: bold;
+    color: #ca6702;
+    font-style: normal;
+}
+features{
+    display: list-item;
+    list-style-type: decimal;
+    margin-left: 20px;
+}
+
+
+shipped_date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 510px;
+}
+date::before{
+    content: "(Shipped date:";
+    color: #e78049;
+}
+date{
+    color: #e78049;
+}
+date::after{
+    content: ")";
+    color: #e78049;
+}
+
+/* not displaying the optional element */
+delivery{
+    display: none;
+}
+
+icons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    gap: 15px;
+}
+esewa{
+    background-image: url("./image/esewa.png");
+    margin-left: 150px;
+}
+ime{
+    background-image: url("./image/ime.png");
+}
+bank{
+    background-image: url("./image/bank.png");
+   
+}
+esewa, ime, bank{
+    background-size: cover;
+    background-position: center;
+    height: 40px;
+    width: 40px;
+   
+}
+txt{
+    color: #005f73;
+}
+/* footer parts starts from here */
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 400px;
+    background-color: #005f73;
+    color: white;
+    color: #001219;
+}
+footer_div{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 60px;
+}
+business_hours{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+f_title{
+    color:rgb(255, 255, 255);
+    font-family: 'Ubuntu';
+    font-size: 20px;
+}
+day{
+    color: rgb(220, 187, 46);
+}
+time{
+    color: white;
+}
+nepali_num{
+    color: white;
+}
+nepali_num::before{
+    content: "+977 ";
+    
+}
+nepali_num:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+useful{
+    line-height: 30px;
+}
+
+text:hover{
+    cursor: pointer;
+    color: rgb(204,107,37);
+}
+
+#a01{
+    display: flex;
+    flex-direction: column;
+    color: rgb(220, 187, 46);
+}
+contacts{
+    display: flex;
+    flex-direction: column;
+    line-height: 25px;
+    color:rgb(220, 187, 46) ;
+}
+phone::before{
+    content: "+ 44 020 ";
+}
+#a11{
+    display: flex;
+    gap: 10px;
+    height: 25px;
+}
+lbl{
+    color: white;
+}
+
+add_img{
+    background-image: url("./image/address.png");
+    
+}
+
+phn_img{
+    background-image: url("./image/phone.png");
+}
+
+email_img{
+    background-image: url("./image/email.png");
+}
+
+add_img, phn_img, email_img{
+    background-size: cover;
+    background-position: center;
+    height: 20px;
+    width: 20px;
+}
+add_img::after, phn_img::after, email_img::after{
+    margin-left: 28px;
+    color: white;
+}
+add_img::after{
+    content: "Address:";
+
+}
+
+phn_img::after{
+    content: "Ring_us:";
+}
+email_img::after{
+    content: "Email:";
+}
+address:hover, phone:hover, email:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+social_media_links{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    gap: 50px;
+    height: 100px;
+    
+}
+s_title{
+    color: rgb(220, 187, 46);
+}
+#l01{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#l01:hover{
+    cursor: pointer;
+}
+facebook{
+    background-image: url("./image/facebook.png");
+    background-size: cover;
+    background-position: center;
+    height: 40px;
+    width: 40px;
+}
+instagram{
+    background-image: url("./image/insta.png");
+    background-size: cover;
+    background-position: center;
+    height: 40px;
+    width: 40px;
+}
+website{
+    background-image: url("./image/website.png");
+    background-size: cover;
+    background-position: center;
+    height: 40px;
+    width: 40px;
+}
+youtube{
+    background-image: url("./image/youtube.png");
+    background-size: cover;
+    background-position: center;
+    height: 40px;
+    width: 40px;
+}
+
+line{
+    border: 1px dotted;
+    width: 1220px;
+    color: white;
+    margin-left: 150px;
+
+}
+f_div{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+info{
+    width: 750px;
+    font-size: 14px;
+    font-family: 'Nunito';
 }

@@ -1,0 +1,646 @@
+<?xml version="1.0"?>
+
+<!-- 
+    Author: Injala Karki
+    ID: 20048897
+    College ID: NP01CP4S210186
+-->
+
+<!-- using flatcatalog design -->
+<!-- schema declaration -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- ComplexType (Compositors) - Element with child elements -->
+    <xs:element name="carrot_store">
+        <xs:complexType>
+            <!-- Use of compositor - sequence -->
+            <xs:sequence>
+                <xs:element ref="store_details" />
+                <xs:element ref="popular_cards" />
+                <xs:element ref="gift_cards" />
+                <xs:element ref="icons" />
+                <xs:element ref="footer" />
+            </xs:sequence>
+            <xs:attribute ref="store_name" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- for store_details -->
+    <xs:element name="store_details">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="division" />
+                <xs:element ref="search" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- store_details (division)element -->
+    <xs:element name="division">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="logo" />
+                <xs:element ref="store_name" />
+                <xs:element ref="desc" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="search" />
+
+    <!-- defining division element -->
+    <!-- SimpleType - Element with only texts -->
+    <xs:element name="logo" />
+    <xs:element name="store_name" type="xs:string" />
+    <!-- applying restrictions to simpleType elements -->
+    <xs:element name="desc">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="30" />
+                <xs:maxLength value="100" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:attribute name="id">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[a-z]([0-9]{2})*" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <!-- for popular_cards -->
+    <xs:element name="popular_cards">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="title" />
+                <xs:element ref="p_div" />
+                <xs:element ref="hr" />
+            </xs:sequence>
+            <xs:attribute ref="type_id" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- popular_cards elements -->
+    <xs:element name="p_div">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="popular_item" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="hr" />
+    <xs:attribute name="type_id" type="xs:ID"/>
+
+    <!-- defining popular_item -->
+    <xs:element name="popular_item">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cards"/>
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- defining cards element -->
+    <xs:element name="cards">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="c_price" />
+                <xs:element ref="shipped_from" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="section" />
+            </xs:sequence>
+            <xs:attribute ref="pc_code" use="required" />
+            <xs:attribute ref="p_id" use="required" />
+            <xs:attribute ref="group" use="optional" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- defining elements inside cards -->
+    <xs:element name="c_price">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                <!-- the card can't have price above 3 digits -->
+                <xs:totalDigits value="3"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="shipped_from" type="xs:string" />
+    <xs:element name="section">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="p_name" />
+                <xs:element ref="cost_price" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+    <xs:attribute name="pc_code">
+        <xs:simpleType>
+            <xs:restriction base="xs:ID">
+                <xs:pattern value="[A-Z]{2}[0-9]{3}"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute> 
+
+    <xs:attribute name="p_id">
+        <xs:simpleType>
+            <xs:restriction base="xs:IDREF">
+                <xs:pattern value="[a-z][0-9]{3}"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="group" type="xs:string" />
+
+    <!-- defining element p_name and cost_price -->
+    <xs:element name="p_name" type="xs:string" />
+    <xs:element name="cost_price" type="xs:double" />
+
+    <!-- for gift_cards -->
+    <xs:element name="gift_cards">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="title" />
+                <xs:element ref="gift_card" />
+                <xs:element ref="hr" />
+                <xs:element ref="gift_card" />
+                <xs:element ref="hr" />
+                <xs:element ref="gift_card" />
+            </xs:sequence>
+            <xs:attribute ref="type_id"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="title">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Popular Cards"/>
+                <xs:enumeration value="Online Cards"/>
+                <xs:enumeration value="Physical Cards"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <!-- for element gift_card -->
+    <xs:element name="gift_card">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="type" />
+                <xs:element ref="discount_vouchers" minOccurs="0" maxOccurs="1" /> 
+                <xs:element ref="delivery" minOccurs="0" maxOccurs="1" />
+                <xs:element ref="shipped_date" minOccurs="0" maxOccurs="1" />
+                <xs:element ref="gc_div" />
+            </xs:sequence>
+            <xs:attribute ref="card_id" use="required" />
+            <xs:attribute ref="category" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- defining gift_card elements -->
+    <xs:element name="type">
+        <xs:simpleType>
+            <!-- applying enumeration restriction for several list-->
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Games"/>
+                <xs:enumeration value="Shopping"/>
+                <xs:enumeration value="Hotels"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <!-- optional element -->
+    <xs:element name="discount_vouchers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="vouch" />
+                <xs:element ref="dis_div" />
+            </xs:sequence>
+            <xs:attribute ref="voucher_id" use="required" />
+        </xs:complexType>
+    </xs:element>
+    <!-- mixed element -->
+    <xs:element name="delivery">
+        <xs:complexType mixed="true"> <!-- mixed was false in default-->
+            <xs:sequence>
+                <xs:element ref="del_lbl" />
+                <xs:element ref="delivery_time" />
+                <xs:element ref="del_loc" />
+                <xs:element ref="delivery_location" />
+                <xs:element ref="delivery_price" minOccurs="1" maxOccurs="2" />
+            </xs:sequence>
+            <xs:attribute ref="d_id" use="required" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="shipped_date">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="date" />
+            </xs:sequence>
+            <xs:attribute ref="shipped_id" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="gc_div">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="card_item" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- defining restriction for attribute card_id-->
+    <xs:attribute name="card_id">
+        <xs:simpleType>
+            <xs:restriction base="xs:ID">
+                 <!-- card_id follow specific character pattern with alphabet at first and then numbers, eg:a123-->
+                <xs:pattern value="[a-z][0-9]{3}" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="category" type="xs:string" />
+    <!-- for card_item -->
+    <xs:element name="card_item">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="card_div" />
+            </xs:sequence>
+            <xs:attribute ref="card_code" use="required"/>
+            <xs:attribute ref="delivery_code" use="optional" />
+            <xs:attribute ref="v_id" use="optional" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- defining card_div -->
+    <xs:element name="card_div">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="div" />
+                <xs:element ref="c_div" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+    <!-- for div element -->
+    <xs:element name="div">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="c_price" />
+                <xs:element ref="c_section" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- for c_section -->
+    <xs:element name="c_section">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="c_name" />
+                <xs:element ref="cost" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- for c_name and cost -->
+    <xs:element name="c_name" type="xs:string" />
+    <xs:element name="cost">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                <xs:fractionDigits value="2"/> <!-- fractionDigits represent how many numbers can be place after decimal point-->
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <!-- for c_div -->
+    <xs:element name="c_div">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="from" />
+                <xs:element ref="validity" />
+                <xs:element ref="num_of_users" />
+                <xs:element ref="quantity" />
+                <xs:element ref="discount" minOccurs="0" maxOccurs="unbounded"/> <!-- optional element-->
+                <xs:element ref="span" />
+                <xs:element ref="features" minOccurs="1" maxOccurs="unbounded" />
+                <xs:element ref="delivery_offer" minOccurs="0" maxOccurs="1" /> <!-- optional element-->
+                <xs:element ref="rating" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="span" type="xs:string" />
+    <xs:element name="from" type="xs:string" />
+    <xs:element name="validity" type="xs:string" />
+    <xs:element name="num_of_users" type="xs:string" />
+    <!-- applying minInclusive and maxInclusive which means greater than or equal to given min/max value -->
+    <xs:element name="quantity">
+        <xs:simpleType>
+            <xs:restriction base="xs:nonNegativeInteger"> <!-- it means value greater than or equal to zero-->
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="100"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="discount" type="xs:positiveInteger"/>
+    <xs:element name="features" type="xs:string" />
+    <xs:element name="delivery_offer" type="xs:string" />
+    <!-- applying minExclusive and maxExclusive which means greater than the given min/max value -->
+    <xs:element name="rating">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                <!-- the rating can be upto 1 to 5 only -->
+                <xs:minExclusive value="0"/>
+                <xs:maxExclusive value="6"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <!-- defining attribites with ID and IDREF -->
+    <xs:attribute name="card_code">
+        <xs:simpleType>
+            <xs:restriction base="xs:ID">
+                <xs:pattern value="[A-Z]{2}[0-9]{4}"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="delivery_code" type="xs:IDREF" />
+    <xs:attribute name="v_id" type="xs:IDREF" />
+
+    <!-- for shipped_date -->
+    <xs:element name="date" type="xs:date" />
+    <xs:attribute name="shipped_id" type="xs:NMTOKEN"/>
+    <!-- defining elements inside delivery -->
+    <xs:element name="del_lbl" type="xs:string" />
+    <xs:element name="delivery_time" type="xs:gDay" />
+    <xs:element name="del_loc" type="xs:string" />
+    <xs:element name="delivery_location" />
+    <xs:element name="delivery_price">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="loc" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attribute name="d_id" type="xs:ID" />
+
+    <!-- defining delivery_price attribute -->
+    <xs:attribute name="loc" default="Nepal">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Inside Kathamandu" />
+                <xs:enumeration value="Outside Kathmandu Valley" />
+                <xs:enumeration value="Nepal" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <!-- defining discount_vouchers element -->
+    <xs:element name="vouch" />
+    <xs:element name="dis_div">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="offer" />
+                <xs:element ref="discount_time" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+    <xs:attribute name="voucher_id" type="xs:ID" />
+
+    <!-- defining dis_div elements -->
+    <xs:element name="offer" />
+    <xs:element name="discount_time" type="xs:string"/>
+
+    <!-- for icons -->
+    <xs:element name="icons">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="esewa" />
+                <xs:element ref="ime" />
+                <xs:element ref="bank" />
+                <xs:element ref="txt" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="esewa" />
+    <xs:element name="ime" />
+    <xs:element name="bank" />
+    <xs:element name="txt" />
+    <!-- for footer -->
+    <xs:element name="footer">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="footer_div" />
+                <xs:element ref="line" />
+                <xs:element ref="f_div" />
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="footer_div">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="business_hours" />
+                <xs:element ref="useful" />
+                <xs:element ref="contacts" />
+                <xs:element ref="social_media_links" />
+            </xs:all>
+            <xs:attribute ref="f_id" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- defining elements of footer_div -->
+    <xs:element name="business_hours">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="f_title" />
+                <xs:element ref="day" />
+                <xs:element ref="time" />
+                <xs:element ref="nepali_num" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="useful">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="f_title" />
+                <xs:element ref="use_div" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="contacts">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="f_title" />
+                <xs:element ref="cont_div"/>
+                <xs:element ref="address" />
+                <xs:element ref="cont_div"/>
+                <xs:element ref="phone" minOccurs="1" maxOccurs="unbounded" />
+                <xs:element ref="cont_div"/>
+                <xs:element ref="email" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="social_media_links">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="s_title" />
+                <xs:element ref="media_div" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- f_id attribute -->
+    <xs:attribute name="f_id" type="xs:integer" />
+
+    <!-- business hours -->
+    <xs:element name="f_title" type="xs:string" />
+    <xs:element name="day" type="xs:string" />
+    <xs:element name="time" type="xs:string" />
+    <xs:element name="nepali_num">
+        <xs:simpleType>
+            <xs:restriction base="xs:integer">
+                <xs:totalDigits value="10"/> 
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <!-- useful -->
+    <xs:element name="use_div">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="text" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- use_div -->
+    <xs:element name="text" type="xs:string" />
+
+    <!-- contacts -->
+    <xs:element name="cont_div">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="add_img" />
+                <xs:element ref="phn_img" />
+                <xs:element ref="email_img" />
+            </xs:choice>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="address" type="xs:string" />
+    <xs:element name="phone">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:NMTOKENS">
+                    <xs:attribute ref="type" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <!-- attribute type -->
+    <xs:attribute name="type" default="home">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="work" />
+                <xs:enumeration value="home" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    <xs:element name="email">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="link" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:attribute name="link">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[a-z]*[0-9]*@gmail.com"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    
+    <!-- cont_div -->
+    <xs:element name="add_img" />
+    <xs:element name="phn_img" />
+    <xs:element name="email_img" />
+    <xs:element name="lbl" type="xs:string" />
+
+    <!-- media links -->
+    <xs:element name="s_title" type="xs:string" />
+    <xs:element name="media_div">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="facebook" />
+                <xs:element ref="instagram" />
+                <xs:element ref="website" />
+                <xs:element ref="youtube" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="facebook">
+        <xs:complexType>
+            <xs:attribute ref="href" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="instagram">
+        <xs:complexType>
+            <xs:attribute ref="href" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="website">
+        <xs:complexType>
+            <xs:attribute ref="href" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="youtube">
+        <xs:complexType>
+            <xs:attribute ref="href" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- href attribute -->
+    <xs:attribute name="href" >
+        <xs:simpleType>
+            <xs:restriction base="xs:ID">
+                <xs:pattern value="www.[a-z]*.com"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    <!-- empty element with attribute -->
+    <xs:element name="line">
+        <xs:complexType>
+            <xs:attribute ref="f_id" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="f_div">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="info" />
+                <xs:element ref="copyright" />
+            </xs:all>
+            <xs:attribute ref="f_id" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- defining element info and copyright -->
+    <xs:element name="info" type="xs:string" />
+    <xs:element name="copyright" type="xs:string" />
+    <xs:attribute name="store_name" type="xs:string" fixed="Carrot Gift Card Store" />
+</xs:schema>
