@@ -1,205 +1,436 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<carrot_store SName="Carrot Gift Card Store">
+<!-- 
+    Author: Injala Karki
+    ID: 20048897
+    College ID: NP01CP4S210186
+-->
+
+<!-- css link -->
+<?xml-stylesheet href="catalog_20048897.css"?>
+
+<!-- root element: complex type->element with child element and attribute -->
+<carrot_store store_name="Carrot Gift Card Store" xsi:noNamespaceSchemaLocation="catalog_20048897.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- schema link-->
+    <!-- ComplexType (Compositors) - Element with child elements -->
     <store_details>
-        <store_name>CARROT GIFT CARD STORE</store_name>
-        <logo />
+        <division id="s01">
+            <logo /> <!-- empty elemnt-->
+            <!-- SimpleType - Element with only texts containing string datatype-->
+            <store_name>CARROT STORE</store_name>
+            <desc>(The fastest and easiest way to buy gift cards.)</desc>
+        </division>
+        <search />
     </store_details>
-    <popular_cards>
-        <cards p_id="c001" group="Games">
-            Gareena Shells
-            <c_price>2000</c_price>
-            <cost_price>Cost: 2090</cost_price>
-            <shipped_from>From: Nepal Games Store</shipped_from>
-        </cards>
-        <cards p_id="c001">
-            PUBG mobile gift card
-            <c_price>2500.50</c_price>
-            <cost_price>Cost: 2600.50</cost_price>
-        </cards>
-        <cards p_id="c002">
-            eGift Cards
-            <c_price>20000</c_price>
-            <cost_price>Cost: 20100</cost_price>
-        </cards>
+
+    <popular_cards type_id="popular">
+        <!-- enumeration list card type -->
+        <title>Popular Cards</title>
+        <p_div id="d01">
+            <popular_item id="p01">
+                <!-- attribute with id reference and optional attribute-->
+                <cards pc_code="PC001" p_id="c001" group="Games">
+                    <!-- SimpleType - Element with only texts containing decimal data type -->
+                    <c_price>200</c_price>
+                    <shipped_from>NepalGame Store</shipped_from> <!-- optional element-->
+                    <section id="g22">
+                        <p_name>Gareena Shells</p_name>
+                        <cost_price>3100</cost_price>
+                    </section>
+                </cards>
+            </popular_item>
+            <popular_item id="p02">
+                <!-- pc_code is the unique code for popular cards  -->
+                <cards pc_code="PC002" p_id="c001">
+                    <c_price>15</c_price>
+                    <section id="g22">
+                        <p_name>PUBG mobile Gift Card</p_name>
+                        <cost_price>2390</cost_price>
+                    </section>
+                </cards>
+            </popular_item>
+            <popular_item id="p03">
+                <cards pc_code="PC003" p_id="c002">
+                    <c_price>200</c_price>
+                    <section id="g22">
+                        <p_name>Google Play Gift Card</p_name>
+                        <cost_price>30600</cost_price>
+                    </section>
+                </cards>
+            </popular_item>
+            <popular_item id="p04">
+                <cards pc_code="PC004" p_id="c001">
+                    <c_price>15</c_price>
+                    <section id="g22">
+                        <p_name>Call of Duty Gift Card</p_name>
+                        <cost_price>2350</cost_price>
+                    </section>
+                </cards>
+            </popular_item>
+        </p_div>
+        <hr />
     </popular_cards>
-    <gift_cards>
+
+    <gift_cards type_id="Online">
         <title>Online Cards</title>
+        <!-- card_id is the unique code for popular cards  -->
         <gift_card card_id="c001" category="Games">
-            <type>Games Gift Cards</type>
+            <!-- category-->
+            <!-- enumeration list card type -->
+            <type>Games</type>
+            <!-- optional element-->
             <discount_vouchers voucher_id="v101">
-                New year offer: 20% OFF
-                <discount_time>upto 2 purchase</discount_time>
+                <vouch />
+                <dis_div id="d02">
+                    <offer>New year offer: 20% OFF</offer>
+                    <!-- can get discount voucher only if you buy 2 gift cards -->
+                    <discount_time>(UPTO 2 PURCHASE)</discount_time>
+                </dis_div>
             </discount_vouchers>
-            <card_item card_code="CG1111">
-                <c_name>
-                    <span>Name:</span>
-                    Xbox Games Card
-                </c_name>
-                <card_price>4500</card_price>
-                <cost>Cost: 5000 </cost>
-                <from>From: NepGame</from>
-                <validity>Validity: No expiry date</validity>
-                <num_of_users>Users: 1.1 million</num_of_users>
-                <quantity>Available quantity: 100</quantity>
-                <features>Features: buy variety of games, renew subscriptions, buy game add-ons</features>
-                <rating>Rating: 4.6</rating>
-            </card_item>
-            <card_item card_code="CG2222" v_id="v101">
-                <c_name>Nintendo Gift Card</c_name>
-                <card_price>7000</card_price>
-                <cost>Cost: 10000</cost>
-                <from>From: ShippudenOnline Store</from>
-                <validity>Validity: 5 years</validity>
-                <num_of_users>Users: 10 k</num_of_users>
-                <quantity>Available quantity: 50</quantity>
-                <features>Features: buy variety of games, renew subscriptions, buy game add-ons</features>
-                <rating>Rating: 3.5</rating>
-            </card_item>
-            <card_item card_code="CG3333">
-                <c_name>Robolox Gift Card</c_name>
-                <card_price>3000</card_price>
-                <cost>Cost: 3500</cost>
-                <from>From: Nepal Game Store</from>
-                <validity>Validity: No expiry date</validity>
-                <num_of_users>Users: 1.5 k</num_of_users>
-                <quantity>Available quantity: 80</quantity>
-                <features>Features: buy variety of games, renew subscriptions, buy game add-ons</features>
-                <rating>Rating: 4</rating>
-            </card_item>
+            <gc_div id="d03">
+                <card_item card_code="CG1111">
+                    <card_div id="b01">
+                        <div id="c11">
+                            <c_price>5</c_price>
+                            <c_section id="g22">
+                                <c_name>Xbox Games Card</c_name>
+                                <cost>800 </cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from> NepGame Store</from>
+                            <validity>No expiry date</validity>
+                            <num_of_users>1.1 million</num_of_users>
+                            <!-- SimpleType - Element with only texts containing nonNegativeInteger-->
+                            <quantity>90</quantity>
+                            <span>Features:</span>
+                            <features>buy variety of games</features>
+                            <features>buy game add-ons</features>
+                            <rating>4.6</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+                <card_item card_code="CG2222" v_id="v101">
+                    <card_div id="b01">
+                        <div id="c13">
+                            <c_price>20</c_price>
+                            <c_section id="g22">
+                                <c_name>Nintendo Gift Card</c_name>
+                                <cost>3150</cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from> Shippuden Game Store</from>
+                            <validity>5 years</validity>
+                            <num_of_users> 10 k</num_of_users>
+                            <quantity> 50</quantity>
+                            <discount>10</discount>
+                            <span>Features:</span>
+                            <features>renew subscriptions</features>
+                            <rating>3.5</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+                <card_item card_code="CG3333">
+                    <card_div id="b01">
+                        <div id="c14">
+                            <c_price>8.5</c_price>
+                            <c_section id="g22">
+                                <c_name>Robolox Gift Card</c_name>
+                                <cost>1250</cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from>Nepal Game Store</from>
+                            <validity>No expiry date</validity>
+                            <num_of_users>1.5 k</num_of_users>
+                            <quantity>80</quantity>
+                            <span>Features:</span>
+                            <features>renew subscriptions</features>
+                            <features>buy Premium subscription</features>
+                            <rating>4</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+                <card_item card_code="CG4444">
+                    <card_div id="b01">
+                        <div id="c15">
+                            <c_price>10</c_price>
+                            <c_section id="g22">
+                                <c_name>League of Legends Gift Card</c_name>
+                                <cost>1600</cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from>Nepal Game Store</from>
+                            <validity>1 year</validity>
+                            <num_of_users>7 k</num_of_users>
+                            <quantity>30</quantity>
+                            <span>Features:</span>
+                            <features>renew subscriptions</features>
+                            <features>buy Premium subscription</features>
+                            <rating>4.1</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+            </gc_div>
         </gift_card>
-        <giftCard card_id="c002" category="Shopping">
-            <type>Shopping Gift Cards</type>
-            <delivery>
+        <hr /> <!-- horizontal line-->
+        <gift_card card_id="c002" category="Shopping">
+            <type>Shopping</type>
+            <!-- optional and mixed type element -->
+            <delivery d_id="de001d">
                 Delivery Offer
-                <delivery_time>Delivery Time: 2-3 Days</delivery_time>
-                <delivery_location>Location: All over Nepal</delivery_location>
+                <del_lbl>Delivery Time: </del_lbl>
+                <!-- element with  gDay datatype -->
+                <delivery_time>---03</delivery_time>
+                <del_loc>Location</del_loc>
+                <delivery_location>:All over Nepal</delivery_location>
+                <!-- element with text and attribute -->
                 <delivery_price loc="Inside Kathamandu">Price(Inside Valley):Rs 100</delivery_price>
-                <delivery_price loc="Outside Kathmandy Valley">Price(outside valley): Rs 500</delivery_price>
-                <delivery_offer>Discount offer: 10% OFF</delivery_offer>
+                <delivery_price loc="Outside Kathmandu Valley">Price(outside valley): Rs 500</delivery_price>
             </delivery>
-            <card_item card_code="CS1111">
-                <c_name>Amazon Gift Card</c_name>
-                <card_price>9009.50</card_price>
-                <cost>Cost: 9500.00</cost>
-                <from>From: Amazon</from>
-                <validity>Validity: No expiry date</validity>
-                <num_of_users>Users: 1.2 million</num_of_users>
-                <quantity>Available quantity: 50</quantity>
-                <features>Features: </features>
-                <rating>Rating: 4.3</rating>
-            </card_item>
-            <card_item card_code="CS2222">
-                <c_name>Archies Gift Card</c_name>
-                <card_price>5000</card_price>
-                <cost>Cost: 5100</cost>
-                <from>From: Archies Store</from>
-                <validity>Validity: 4 years</validity>
-                <num_of_users>Users: 4k</num_of_users>
-                <quantity>Available quantity: 50</quantity>
-                <!-- <delivery>
-                    <delivery_time>1 week</delivery_time>
-                    <delivery_location>All over Nepal</delivery_location>
-                    <delivery_price loc="Inside Kathamandu">Rs 100</delivery_price>
-                    <delivery_price loc="Outside Kathmandy Valley">Rs 500</delivery_price>
-                </delivery> -->
-                <features>Features: For buying clothes and footwear only</features>
-                <rating>Rating: 4.3</rating>
-            </card_item>
-            <card_item card_code="CS3333">
-                <c_name>GRUBHUB Gift Card</c_name>
-                <card_price>10000</card_price>
-                <cost>Cost: 10080</cost>
-                <validity>Validity: No expiry date</validity>
-                <num_of_users>Users: 1 million</num_of_users>
-                <quantity>Available quantity: 50</quantity>
-                <features>Features: </features>
-                <rating>Rating: 4.5</rating>
-            </card_item>
-        </giftCard>
-        <giftCard card_id="c003" category="Hotels">
-            <type>Hotels Gift Cards</type>
-            <card_item card_code="CH1111">
-                <c_name>Wisco Hotel Gift Card</c_name>
-                <card_price>50000</card_price>
-                <cost>Cost: 50100</cost>
-                <from>Frome: Wisco Hotel</from>
-                <validity>Validity: No expiry date</validity>
-                <num_of_users>Users: 1k</num_of_users>
-                <quantity>Available quantity: 30</quantity>
-                <features>Features: </features>
-                <rating>Rating: 4</rating>
-            </card_item>
-            <cardItem card_code="CH2222">
-                <c_name>Taj Hotel Gift Card</c_name>
-                <card_price>10000</card_price>
-                <cost>Cost: 10300</cost>
-                <from>From: Taj Hotel</from>
-                <validity>Validity: No expiry date</validity>
-                <num_of_users>Users: 1 million</num_of_users>
-                <quantity>Available quantity: 20</quantity>
-                <!-- <delivery>
-                    <delivery_time>2-4 Days</delivery_time>
-                    <delivery_location>Inside Kathmandu valey</delivery_location>
-                    <delivery_price>80</delivery_price>
-                </delivery> -->
-                <features>Features:</features>
-                <rating>Rating: 4.3</rating>
-            </cardItem>
-        </giftCard>
-        <giftCard card_id="c004" category="RetailShops">
-            <type>Retail Gift Cards</type>
-            <shipped_date>
-                Shipped date:
-                <shipped_day>Day:23</shipped_day>
-                <shipped_month>Month: August</shipped_month>
-                <shipped_year>Year: 2021</shipped_year>
+            <gc_div id="d03">
+                <card_item card_code="CS1111" delivery_code="de001d">
+                    <card_div id="b01">
+                        <div id="c16">
+                            <c_price>50</c_price>
+                            <c_section id="g22">
+                                <c_name>Amazon Gift Card</c_name>
+                                <cost>7735.50</cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from> Amazon</from>
+                            <validity>No expiry date</validity>
+                            <num_of_users>1.2 million</num_of_users>
+                            <quantity>50</quantity>
+                            <span>Features:</span>
+                            <features>renew subscriptions </features>
+                            <delivery_offer> available</delivery_offer> <!-- optional element-->
+                            <rating>4.3</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+                <card_item card_code="CS2222">
+                    <card_div id="b01">
+                        <div id="c17">
+                            <c_price>40</c_price>
+                            <c_section id="g22">
+                                <c_name>Archies Gift Card</c_name>
+                                <cost>6200.20</cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from> Archies Store</from>
+                            <validity>4 years</validity>
+                            <num_of_users>4k</num_of_users>
+                            <quantity>50</quantity>
+                            <span>Features:</span>
+                            <features>For buying clothes</features>
+                            <!-- using entity for ampersand -->
+                            <features>&amp;footwear only</features>
+                            <rating>4.3</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+                <card_item card_code="CS3333">
+                    <card_div id="b01">
+                        <div id="c18">
+                            <c_price>25</c_price>
+                            <c_section id="g22">
+                                <c_name>Macy's Gift Card</c_name>
+                                <cost>3900</cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from> Macy's Store</from>
+                            <validity>No expiry date</validity>
+                            <num_of_users>1 million</num_of_users>
+                            <quantity>5</quantity>
+                            <span>Features:</span>
+                            <features>buy Macy's product online </features>
+                            <rating>4.5</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+                <card_item card_code="CS4444">
+                    <card_div id="b01">
+                        <div id="c19">
+                            <c_price>100</c_price>
+                            <c_section id="g22">
+                                <c_name>Harrods Gift Card</c_name>
+                                <cost>15500</cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from>Harrods</from>
+                            <validity>5 years</validity>
+                            <num_of_users>2 million</num_of_users>
+                            <quantity>10</quantity>
+                            <span>Features:</span>
+                            <features>buy Harrods product online</features>
+                            <rating>4.7</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+            </gc_div>
+        </gift_card>
+        <hr />
+        <gift_card card_id="c003" category="Hotels">
+            <type>Hotels</type>
+            <!-- NMTOKEN used here so that : can be used -->
+            <shipped_date shipped_id="WBC:22:wbc">
+                <!-- SimpleType - Element with only texts containing date datatype-->
+                <date>2021-08-23</date>
             </shipped_date>
-            <card_item card_code="CR1111">
-                <c_name>Walmart Gift Card</c_name>
-                <card_price>100000</card_price>
-                <cost>Cost: 100200</cost>
-                <from>From: Walmart</from>
-                <validity>Validity: 10 years</validity>
-                <num_of_users>Users: 10k</num_of_users>
-                <quantity>Available quantity: 20</quantity>
-                <rating>Rating: 4.1</rating>
-            </card_item>
-            <cardItem card_code="CR2222">
-                <c_name>Target Gift Card</c_name>
-                <card_price>40000</card_price>
-                <cost>Cost: 40100</cost>
-                <from>From: Target</from>
-                <validity>Validity: No expiry date</validity>
-                <numOfUsers>Users: 25k</numOfUsers>
-                <quantity>Available quantity: 40</quantity>
-                <!-- <delivery>
-                    <deliveryTime>2-4 Days</deliveryTime>
-                    <deliveryLocation>Inside Kathmandu valey</deliveryLocation>
-                    <deliveryPrice>80</deliveryPrice>
-                </delivery> -->
-                <rating>Rating: 3.5</rating>
-            </cardItem>
-        </giftCard>
+            <gc_div id="d03">
+                <card_item card_code="CH1111">
+                    <card_div id="b01">
+                        <div id="c20">
+                            <c_price>100</c_price>
+                            <c_section id="g22">
+                                <c_name>Wisco Hotel Gift Card</c_name>
+                                <cost>15400</cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from> Wisco Hotel</from>
+                            <validity>No expiry date</validity>
+                            <num_of_users>1k</num_of_users>
+                            <quantity>30</quantity>
+                            <span>Features:</span>
+                            <features>To reserve room at advance</features>
+                            <rating>4</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+                <card_item card_code="CH2222">
+                    <card_div id="b01">
+                        <div id="c21">
+                            <c_price>100</c_price>
+                            <c_section id="g22">
+                                <c_name>Taj Hotel Gift Card</c_name>
+                                <cost>15350</cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from> Taj Hotel</from>
+                            <validity>No expiry date</validity>
+                            <num_of_users>1 million</num_of_users>
+                            <quantity>20</quantity>
+                            <span>Features:</span>
+                            <features>To book room at Taj </features>
+                            <rating>4.3</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+                <card_item card_code="CH3333">
+                    <card_div id="b01">
+                        <div id="c22">
+                            <c_price>150</c_price>
+                            <c_section id="g22">
+                                <c_name>Ritz Hotel Gift Card</c_name>
+                                <cost>2300.50</cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from> Ritz Hotel, Paris</from>
+                            <validity>10 years</validity>
+                            <num_of_users>10k</num_of_users>
+                            <quantity>20</quantity>
+                            <span>Features:</span>
+                            <features>Book rooms</features>
+                            <features>Reserve wedding halls</features>
+                            <rating>4.1</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+                <card_item card_code="CH4444">
+                    <card_div id="b01">
+                        <div id="c23">
+                            <c_price>50</c_price>
+                            <c_section id="g22">
+                                <c_name>Peninsula Hotel Gift Card</c_name>
+                                <cost>7550</cost>
+                            </c_section>
+                        </div>
+                        <c_div id="c12">
+                            <from> The Peninsula Hotel</from>
+                            <validity>10 years</validity>
+                            <num_of_users>10k</num_of_users>
+                            <quantity>15</quantity>
+                            <span>Features:</span>
+                            <features>To book rooms in Peninsula</features>
+                            <features>Book rooms at retail price</features>
+                            <rating>4.1</rating>
+                        </c_div>
+                    </card_div>
+                </card_item>
+            </gc_div>
+        </gift_card>
     </gift_cards>
+    <!-- icons for available payment methods that are available -->
+    <icons>
+        <!-- empty elements -->
+        <esewa />
+        <ime />
+        <bank />
+        <txt>Bank Transfer</txt>
+    </icons>
+    <!-- footer parts starts from here -->
     <footer>
-        <business_hours>
-            Business Hours
-            <day>Sun-Sat (Nepal Time)</day>
-            <time>8 AM - 8 PM</time>
-        </business_hours>
-        <contacts>
-            <address> Address: Pepsicola townplanning</address>
-            <phone_lbl>Ring us: </phone_lbl>
-            <phone type="work">01567888</phone>
-            <phone type="home">9864590194</phone>
-            <email href="carrotstore99@gmail.com">carrotstore99@gmail.com</email>
-        </contacts>
-        <social_media_links>
-            <facebook href="www.facebook.com">facebook</facebook>
-            <instagram href="www.instagram.com">instagram</instagram>
-            <youtube href="www.youtube.com">youtube</youtube>
-            <website href="www.carrotstore@.com">website</website>
-        </social_media_links>
+        <footer_div f_id="101">
+            <business_hours>
+                <f_title>Business Hours</f_title>
+                <day>Sun-Sat (Nepal Time)</day>
+                <time>8 AM - 8 PM</time>
+                <nepali_num>9856473620</nepali_num>
+            </business_hours>
+            <useful>
+                <f_title>Useful link</f_title>
+                <use_div id="a01">
+                    <text>How to redeem gift cards</text>
+                    <text>Privacy policy</text>
+                    <text>Terms and condition</text>
+                    <text>Delivery and return policy</text>
+                </use_div>
+            </useful>
+            <contacts>
+                <f_title>contact us</f_title>
+                <cont_div id="a11">
+                    <add_img /> <!-- choice type element -->
+                </cont_div>
+                <address> Oxford street, London</address>
+                <cont_div id="a11">
+                    <phn_img /> <!-- choice type element -->
+                </cont_div>
+                <!-- ComplexType (simpleContent) - Element with attribute/s and texts -->
+                <phone type="work">1234 5678</phone> <!-- NMTOKENS used here becase it have NMTOKEN with space-->
+                <phone type="home">4596 0019</phone>
+                <cont_div id="a11">
+                    <email_img /> <!-- choice type element -->
+                </cont_div>
+                <email link="carrotstore99@gmail.com">carrotstore99@gmail.com</email>
+            </contacts>
+            <social_media_links>
+                <s_title>Trustpilot</s_title>
+                <media_div id="l01">
+                    <facebook href="www.facebook.com" />
+                    <instagram href="www.instagram.com" />
+                    <website href="www.gmail.com" />
+                    <youtube href="www.youtube.com" />
+                </media_div>
+            </social_media_links>
+        </footer_div>
+        <!-- empty element with attribute -->
+        <line f_id="202" />
+        <f_div f_id="303">
+            <info>
+                The product names used on this website are for identification
+                purposes only. All trademarks and registered trademarks are the property of their respective owners.
+            </info>
+            <copyright>© 2022 carrotstore.com</copyright>
+        </f_div>
     </footer>
 </carrot_store>
